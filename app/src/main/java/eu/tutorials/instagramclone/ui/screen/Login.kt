@@ -22,11 +22,14 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import eu.tutorials.instagramclone.R
+import eu.tutorials.instagramclone.model.BottomMenu
 import eu.tutorials.instagramclone.ui.components.UserTextField
 
 @Composable
-fun Login(modifier: Modifier = Modifier) {
+fun Login(modifier: Modifier = Modifier,navController: NavController) {
     val usernameState = remember {
         mutableStateOf("")
     }
@@ -55,7 +58,7 @@ fun Login(modifier: Modifier = Modifier) {
             modifier = modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp)
-                .scrollable(scrollState,Orientation.Vertical)
+                .scrollable(scrollState, Orientation.Vertical)
                 .weight(5.0f)
         ) {
             Image(
@@ -83,13 +86,15 @@ fun Login(modifier: Modifier = Modifier) {
                 passwordTransformation = if (toggleState.value) VisualTransformation.None else PasswordVisualTransformation()
             )
 
-            OutlinedButton(
-                onClick = { },
+           Button(
+                onClick = {
+                 navController.navigate("main")
+                },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 16.dp),
                 enabled = usernameState.value.isNotEmpty() && passwordState.value.isNotEmpty(),
-            ) {
+               colors = ButtonDefaults.buttonColors(backgroundColor = Color.Blue,contentColor = Color.White)) {
                 Text(text = "Login", modifier = modifier.padding(vertical = 8.dp))
             }
 
@@ -152,5 +157,5 @@ fun Login(modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun LoginPreview() {
-    Login()
+    Login(navController = rememberNavController())
 }
