@@ -15,7 +15,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import eu.tutorials.instagramclone.R
 import eu.tutorials.instagramclone.ui.components.StoriesBox
-import eu.tutorials.instagramclone.ui.screen.home.HomeManager
 
 @Composable
 fun Home() {
