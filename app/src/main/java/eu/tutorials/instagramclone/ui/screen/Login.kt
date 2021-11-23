@@ -23,11 +23,14 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.rememberNavController
 import eu.tutorials.instagramclone.R
 import eu.tutorials.instagramclone.ui.components.UserTextField
+import eu.tutorials.instagramclone.ui.screen.main.Navigation
 
+//Todo 5: we create navigation as Login parameter
 @Composable
-fun Login(modifier: Modifier = Modifier) {
+fun Login(modifier: Modifier = Modifier,navigation: Navigation) {
 
     val usernameState = remember {
         mutableStateOf("")
@@ -88,7 +91,16 @@ fun Login(modifier: Modifier = Modifier) {
             )
 
             Button(
-                onClick = { },
+                onClick = {
+                    //Todo 6: call navController and navigate to main route, setting Login as its back stack
+                    //And then pop it of when navigating back
+                          navigation.navController.navigate("main"){
+                              launchSingleTop = true
+                              popUpTo("login"){
+                                  inclusive = true
+                              }
+                          }
+                },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 16.dp),
@@ -155,5 +167,5 @@ fun Login(modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun LoginPreview() {
-    Login()
+    Login(navigation = Navigation(rememberNavController()))
 }

@@ -5,7 +5,6 @@ import androidx.compose.material.icons.filled.*
 import androidx.compose.material.icons.outlined.*
 import androidx.compose.ui.graphics.vector.ImageVector
 
-//Todo 3: create a class with fields for each menu item
 sealed class BottomMenu(val route:String, val label:String, val icon: ImageVector, val selectedIcon: ImageVector){
     object Home:BottomMenu("home","Home", Icons.Outlined.Home, Icons.Filled.Home)
     object Search:BottomMenu("search","Search",Icons.Outlined.Search,Icons.Filled.Search)
