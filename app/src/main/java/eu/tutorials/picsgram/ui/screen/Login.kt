@@ -113,38 +113,6 @@ fun Login(modifier: Modifier = Modifier,navigation: Navigation) {
                 Text(text = "Get help Signing in.", fontWeight = FontWeight.Bold)
             }
 
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 16.dp)
-            ) {
-                Divider(
-                    modifier = modifier
-                        .weight(5.0f)
-                        .padding(top = 12.dp)
-                )
-                Text(text = " OR ")
-                Divider(
-                    modifier = modifier
-                        .weight(5.0f)
-                        .padding(top = 12.dp)
-                )
-            }
-
-            Row(
-                modifier = modifier
-                    .fillMaxWidth()
-                    .padding(top = 16.dp),
-                horizontalArrangement = Arrangement.Center
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Facebook,
-                    contentDescription = "",
-                    tint = Color.Blue
-                )
-                Text(text = " Login With Facebook ",color = Color.Blue)
-            }
-
         }
         Divider(modifier = modifier.padding(top = 48.dp))
         Row(
