@@ -1,4 +1,4 @@
-package eu.tutorials.instagramclone.ui.theme
+package eu.tutorials.picsgram.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

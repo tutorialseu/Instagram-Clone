@@ -1,4 +1,4 @@
-package eu.tutorials.instagramclone.ui.screen
+package eu.tutorials.picsgram.ui.screen
 
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
@@ -7,7 +7,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import eu.tutorials.instagramclone.model.BottomMenu
+import eu.tutorials.picsgram.model.BottomMenu
 
 //Todo 1: create MainScreen with a composable function
 @Composable
@@ -27,7 +27,7 @@ fun HomeBottomBar() {
     //Todo 5: create a list of the menu items from the BottomMenu class we created
     val tabs = listOf(
         BottomMenu.Home,
-        BottomMenu.Search, BottomMenu.Reels, BottomMenu.Activity, BottomMenu.Account
+        BottomMenu.Search, BottomMenu.Activity, BottomMenu.Account
     )
     /*Todo 6: Call the BottomNavigation element and set background color to white,loop
         through each item and set a BottomNavigationItem for it with setting a few properties like selected to false, leave onclick empty
