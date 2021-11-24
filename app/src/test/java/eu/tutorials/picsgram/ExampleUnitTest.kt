@@ -1,4 +1,4 @@
-package eu.tutorials.instagramclone
+package eu.tutorials.picsgram
 
 import org.junit.Test
 

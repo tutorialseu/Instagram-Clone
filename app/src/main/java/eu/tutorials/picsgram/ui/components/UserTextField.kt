@@ -1,4 +1,4 @@
-package eu.tutorials.instagramclone.ui.components
+package eu.tutorials.picsgram.ui.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
