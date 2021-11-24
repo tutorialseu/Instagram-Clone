@@ -3,6 +3,7 @@ package eu.tutorials.picsgram.ui.screen
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -17,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
@@ -29,7 +31,7 @@ import eu.tutorials.picsgram.ui.components.UserTextField
  */
 @Composable
 fun Login(modifier: Modifier = Modifier) {
-    //Todo 10: we create a state variable for the username, password and visibility icon toggle
+    //Todo 11: we create a state variable for the username, password and visibility icon toggle
     //start
     val usernameState = remember {
         mutableStateOf("")
@@ -41,7 +43,7 @@ fun Login(modifier: Modifier = Modifier) {
         mutableStateOf(false)
     }
     //end
-    //Todo 20: create a scrollable state
+    //Todo 18: create a scrollable state
     val scrollState = rememberScrollState()
 
     /*Todo 2: add a Column as the parent layout with a modifier to fillMaxSize ie height and width
@@ -60,7 +62,7 @@ fun Login(modifier: Modifier = Modifier) {
         Row(
             modifier = modifier
                 .fillMaxWidth()
-                    //Todo 12: Add weight for the language drop down
+                    //Todo 7: Add weight for the language drop down
                     //start
                 .weight(1.0f),
                    //end
@@ -80,11 +82,11 @@ fun Login(modifier: Modifier = Modifier) {
             modifier = modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp)
-                    //Todo 21:add vertical scrolling
+                    //Todo 19:add vertical scrolling
                     //start
                 .verticalScroll(scrollState)
                     //end
-                .weight(5.0f)
+                .weight(9.0f)
         ) {
             //Todo 6: add an Image and set the instagram drawable to fillMaxWidth
             Image(
@@ -92,17 +94,18 @@ fun Login(modifier: Modifier = Modifier) {
                 modifier = modifier
                     .fillMaxWidth()
             )
-            /*Todo 11: We add the first reusable element we created for the username,set fieldState
+            /*Todo 12: We add the first reusable element we created for the username,set fieldState
                to usernameState value, in onfieldChange we get the string and
                set the usernameState and then set a placeholder
              */
             UserTextField(
                 fieldState = usernameState.value,
                 onFieldChange = { usernameState.value = it },
-                placeholder = "Phone number, email or username"
+                placeholder = "email",
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
             )
 
-            /*Todo 12: add the reusable element again this time for the password
+            /*Todo 13: add the reusable element again this time for the password
               set the fieldState to passwordState,in onfieldChange we the value from the field
               and set to passwordState, for passwordToggle we set an IconButton
               and in the onCLick turn toggle state to true or false, now for the Icon
@@ -126,7 +129,7 @@ fun Login(modifier: Modifier = Modifier) {
             )
 
             /*
-              Todo 13: we add a Button for Login, the onclick button is not implementedd yet
+              Todo 14: we add a Button for Login, the onclick button is not implementedd yet
               we se modifier to fillMaxWidth with a top padding of 16dp.
               Now we only want the button to be enabled when the fields are not empty just like on instagram
               we get the state for each field created above and check if both is not empty then enable the button
@@ -142,66 +145,13 @@ fun Login(modifier: Modifier = Modifier) {
                 Text(text = "Login", modifier = modifier.padding(vertical = 8.dp))
             }
 
-            /*
-            Todo 14 We add a row for forgot details,set modifier to fillMaxWidth and padding top to
-            16dp then add horizontalArrangement to Center
-            In the row we add two Text element that is required
-             */
-            Row(
-                modifier = modifier
-                    .fillMaxWidth()
-                    .padding(top = 16.dp), horizontalArrangement = Arrangement.Center
-            ) {
-                Text(text = "forgot your login details? ")
-                Text(text = "Get help Signing in.", fontWeight = FontWeight.Bold)
-            }
-            /*
-            Todo 15 we use a Row to set two dividers at the start and end of the OR Text, using the
-            weight modifier we git the dividers 5.0 weight each and then the Text stays at the middle.
-            We also add a top padding of 12dp to keep them at the center of the Text
-             */
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 16.dp)
-            ) {
-                Divider(
-                    modifier = modifier
-                        .weight(5.0f)
-                        .padding(top = 12.dp)
-                )
-                Text(text = " OR ")
-                Divider(
-                    modifier = modifier
-                        .weight(5.0f)
-                        .padding(top = 12.dp)
-                )
-            }
-            /*
-            todo 16: next is the facebook login option which we add a row and set the icon and text
-             side by side. Then the Row gets a fillMaxWidth and padding top of 16dp
-             */
-
-            Row(
-                modifier = modifier
-                    .fillMaxWidth()
-                    .padding(top = 16.dp),
-                horizontalArrangement = Arrangement.Center
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Facebook,
-                    contentDescription = "",
-                    tint = Color.Blue
-                )
-                Text(text = " Login With Facebook ",color = Color.Blue)
-            }
 
         }
 
-        //Todo 17: We set a line using  a Divider and add a top padding of 48dp
+        //Todo 16: We set a line using  a Divider and add a top padding of 48dp
         Divider(modifier = modifier.padding(top = 48.dp))
 
-        /* Todo 18: We add a Row with two Text for new account SignUp
+        /* Todo 17: We add a Row with two Text for new account SignUp
         add a modifier with fillMaxWidth and top padding of 16.dp with horizontalArrangement of Center
          */
         Row(
@@ -216,7 +166,7 @@ fun Login(modifier: Modifier = Modifier) {
     }
 }
 
-//Todo 7 we add a preview for the Login
+//Todo 8 we add a preview for the Login
 @Preview(showBackground = true)
 @Composable
 fun LoginPreview() {
