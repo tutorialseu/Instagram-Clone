@@ -1,4 +1,4 @@
-package eu.tutorials.instagramclone.model
+package eu.tutorials.picsgram.model
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
