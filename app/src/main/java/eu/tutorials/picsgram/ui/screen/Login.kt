@@ -1,8 +1,6 @@
-package eu.tutorials.instagramclone.ui.screen
+package eu.tutorials.picsgram.ui.screen
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.gestures.Orientation
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -24,9 +22,9 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
-import eu.tutorials.instagramclone.R
-import eu.tutorials.instagramclone.ui.components.UserTextField
-import eu.tutorials.instagramclone.ui.screen.main.Navigation
+import eu.tutorials.picsgram.R
+import eu.tutorials.picsgram.ui.components.UserTextField
+import eu.tutorials.picsgram.ui.screen.main.Navigation
 
 //Todo 5: we create navigation as Login parameter
 @Composable
@@ -65,7 +63,7 @@ fun Login(modifier: Modifier = Modifier,navigation: Navigation) {
                 .weight(5.0f)
         ) {
             Image(
-                painter = painterResource(id = R.drawable.instagram), contentDescription = "",
+                painter = painterResource(id = R.drawable.picsgram), contentDescription = "",
                 modifier = modifier
                     .fillMaxWidth()
             )

@@ -1,4 +1,4 @@
-package eu.tutorials.instagramclone.ui.screen.main
+package eu.tutorials.picsgram.ui.screen.main
 
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
@@ -8,8 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
-import eu.tutorials.instagramclone.model.BottomMenu
-import eu.tutorials.instagramclone.ui.screen.main.Navigation
+
 //Todo 2:create main package in screen and move MainScreen.kt into it
 //Todo 8: Create Navigation variable and pass into HomeBottomBar
 @Composable

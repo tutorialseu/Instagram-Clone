@@ -1,4 +1,4 @@
-package eu.tutorials.instagramclone.ui.screen.main
+package eu.tutorials.picsgram.ui.screen.main
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -7,8 +7,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navigation
-import eu.tutorials.instagramclone.model.BottomMenu
-import eu.tutorials.instagramclone.ui.screen.Login
+import eu.tutorials.picsgram.model.BottomMenu
+import eu.tutorials.picsgram.ui.screen.Login
 
 /**Todo 3: create Navigation class with @param [navController]
  * create the list of menus [tabs]
@@ -22,7 +22,7 @@ class Navigation(val navController: NavHostController) {
 
     val tabs = listOf(
         BottomMenu.Home,
-        BottomMenu.Search, BottomMenu.Reels, BottomMenu.Activity, BottomMenu.Account
+        BottomMenu.Search, BottomMenu.Activity, BottomMenu.Account
     )
 
     val bottomRoutes = tabs.map { it.route }
@@ -69,10 +69,6 @@ fun Navigation(navigation: Navigation) {
             }
 
             composable(BottomMenu.Search.route){
-
-            }
-
-            composable(BottomMenu.Reels.route){
 
             }
 
