@@ -145,6 +145,19 @@ fun Login(modifier: Modifier = Modifier) {
                 Text(text = "Login", modifier = modifier.padding(vertical = 8.dp))
             }
 
+            /*
+            Todo 15 We add a row for forgot details,set modifier to fillMaxWidth and padding top to
+            16dp then add horizontalArrangement to Center
+            In the row we add two Text element that is required
+             */
+            Row(
+                modifier = modifier
+                    .fillMaxWidth()
+                    .padding(top = 16.dp), horizontalArrangement = Arrangement.Center
+            ) {
+                Text(text = "forgot your login details? ")
+                Text(text = "Get help Signing in.", fontWeight = FontWeight.Bold)
+            }
 
         }
 
