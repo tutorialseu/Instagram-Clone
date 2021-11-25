@@ -20,8 +20,6 @@ class Navigation(val navController: NavHostController) {
 
     val bottomRoutes = tabs.map { it.route }
 
-    // Reading this attribute will cause recompositions when the bottom bar needs shown, or not.
-    // Not all routes need to show the bottom bar.
     val shouldShowBottomBar: Boolean
         @Composable get() = navController
             .currentBackStackEntryAsState().value?.destination?.route in bottomRoutes
@@ -55,8 +53,7 @@ fun Navigation(navigation: Navigation) {
 
         navigation(BottomMenu.Home.route,"main"){
             composable(BottomMenu.Home.route){
-                //Todo 16: Add Home composable to the Home Route
-            Home()
+           Home()
             }
 
             composable(BottomMenu.Search.route){
