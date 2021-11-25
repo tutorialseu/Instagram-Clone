@@ -1,6 +1,7 @@
 package eu.tutorials.picsgram.ui.screen
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -116,38 +117,6 @@ fun Login(modifier: Modifier = Modifier,navigation: Navigation) {
                 Text(text = "Get help Signing in.", fontWeight = FontWeight.Bold)
             }
 
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 16.dp)
-            ) {
-                Divider(
-                    modifier = modifier
-                        .weight(5.0f)
-                        .padding(top = 12.dp)
-                )
-                Text(text = " OR ")
-                Divider(
-                    modifier = modifier
-                        .weight(5.0f)
-                        .padding(top = 12.dp)
-                )
-            }
-
-            Row(
-                modifier = modifier
-                    .fillMaxWidth()
-                    .padding(top = 16.dp),
-                horizontalArrangement = Arrangement.Center
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Facebook,
-                    contentDescription = "",
-                    tint = Color.Blue
-                )
-                Text(text = " Login With Facebook ",color = Color.Blue)
-            }
-
         }
         Divider(modifier = modifier.padding(top = 48.dp))
         Row(
@@ -157,7 +126,19 @@ fun Login(modifier: Modifier = Modifier,navigation: Navigation) {
             horizontalArrangement = Arrangement.Center
         ) {
             Text(text = "Don't have an account? ")
-            Text(text = "Sign Up", fontWeight = FontWeight.Bold)
+            Text(text = "Sign Up", fontWeight = FontWeight.Bold,
+                /*Todo 7:make a Text clickable by using the modifier and calling the clickable method
+                For every composable without the onClick method we can use the modifier to enable click
+                 */
+                modifier = modifier.clickable {
+                    //Todo 8 in the method we navigate to signup screen using its route
+                    navigation.navController.navigate("signup"){
+                        launchSingleTop = true
+                        popUpTo("login"){
+                            inclusive = true
+                        }
+                    }
+                })
         }
     }
 }

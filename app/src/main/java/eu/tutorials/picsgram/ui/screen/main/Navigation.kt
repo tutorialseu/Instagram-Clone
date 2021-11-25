@@ -9,6 +9,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navigation
 import eu.tutorials.picsgram.model.BottomMenu
 import eu.tutorials.picsgram.ui.screen.Login
+import eu.tutorials.picsgram.ui.screen.SignUp
 
 /**Todo 3: create Navigation class with @param [navController]
  * create the list of menus [tabs]
@@ -38,8 +39,9 @@ class Navigation(val navController: NavHostController) {
 
     fun navigateToBottomBarRoute(route: String) {
             navController.navigate(route) {
-                 popUpTo(navController.graph.findStartDestination().id) {
+                 popUpTo("login") {
                         saveState = true
+                     inclusive = true
 
                 }
                 launchSingleTop = true
@@ -50,17 +52,22 @@ class Navigation(val navController: NavHostController) {
 
 /**Todo 4: create Navigation composable and pass in the [Navigation] class
  * Add [NavHost] and pass in navController from the navigation class and set login screen as the start
- * destination. Then we add a composable for [Login]
+ * destination. We add a composable for [Login] and another for [SignUp]
  * We then add a new [navigation] for the [BottomMenu] since its a nested navigation
- * And add composable for all bottom routes, we also add a route "main" for the navigation
+ * And add composable for all bottom routes, we also add a route "main" for identifying just the
+ * bottom bar navigation
  */
 @Composable
 fun Navigation(navigation: Navigation) {
     NavHost(navController = navigation.navController, startDestination = "login"){
 
         composable("login"){
-            //Todo 7: pass in navigation argument
+            //Todo 9: pass in navigation argument
             Login(navigation = navigation)
+        }
+
+        composable("signup"){
+            SignUp(navigation = navigation)
         }
 
         navigation(BottomMenu.Home.route,"main"){

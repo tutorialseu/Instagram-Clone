@@ -28,10 +28,10 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun InstagramApp() {
-    //Todo 10: create remember navcontroller and initialize navigation
+    //Todo 15: create remember navcontroller and initialize navigation
     val navController = rememberNavController()
     val navigation=Navigation(navController = navController)
-    //Todo 11: Replace Login with MainScreen
+    //Todo 16: Replace Login with MainScreen
   MainScreen(navigation = navigation)
 }
 
