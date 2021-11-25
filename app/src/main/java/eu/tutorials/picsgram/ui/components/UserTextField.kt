@@ -7,7 +7,6 @@ import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 
@@ -16,8 +15,7 @@ fun UserTextField(fieldState:String, onFieldChange:(String)->Unit, placeholder:S
                   modifier: Modifier = Modifier,
                   passwordToggle: @Composable (() -> Unit)? = null,
                   passwordTransformation:VisualTransformation = VisualTransformation.None,
-keyboardOptions: KeyboardOptions = KeyboardOptions.Default
-) {
+keyboardOptions: KeyboardOptions = KeyboardOptions.Default) {
     OutlinedTextField(value = fieldState, onValueChange = {
        onFieldChange(it)
     },placeholder = { Text(text =placeholder) },

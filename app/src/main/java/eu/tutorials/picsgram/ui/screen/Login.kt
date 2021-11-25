@@ -1,6 +1,7 @@
 package eu.tutorials.picsgram.ui.screen
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -69,7 +70,7 @@ fun Login(modifier: Modifier = Modifier,navigation: Navigation) {
             UserTextField(
                 fieldState = usernameState.value,
                 onFieldChange = { usernameState.value = it },
-                placeholder = "Phone number, email or username"
+                placeholder = "email"
             )
 
             UserTextField(
@@ -89,7 +90,7 @@ fun Login(modifier: Modifier = Modifier,navigation: Navigation) {
 
             Button(
                 onClick = {
-                      navigation.navController.navigate("main"){
+                          navigation.navController.navigate("main"){
                               launchSingleTop = true
                               popUpTo("login"){
                                   inclusive = true
@@ -122,7 +123,15 @@ fun Login(modifier: Modifier = Modifier,navigation: Navigation) {
             horizontalArrangement = Arrangement.Center
         ) {
             Text(text = "Don't have an account? ")
-            Text(text = "Sign Up", fontWeight = FontWeight.Bold)
+            Text(text = "Sign Up", fontWeight = FontWeight.Bold,
+                modifier = modifier.clickable {
+                   navigation.navController.navigate("signup"){
+                        launchSingleTop = true
+                        popUpTo("login"){
+                            inclusive = true
+                        }
+                    }
+                })
         }
     }
 }

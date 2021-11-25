@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun InstagramApp() {
-    val navController = rememberNavController()
+val navController = rememberNavController()
     val navigation=Navigation(navController = navController)
   MainScreen(navigation = navigation)
 }
