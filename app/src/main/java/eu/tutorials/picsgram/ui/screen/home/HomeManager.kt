@@ -5,8 +5,13 @@ import androidx.compose.runtime.mutableStateOf
 import eu.tutorials.picsgram.model.Post
 import eu.tutorials.picsgram.model.User
 
+/**Todo 5: create HomeManager object class
+ * With [usernames] as the dummy values for users usernames
+ * [captions] as the dummy values for post captions
+ * [_posts] will set the  dummy posts created in [displayPosts]
+ * and returned from [posts]
+ */
 object HomeManager {
-
 
     private val usernames =
         arrayListOf("Steph", "Chris", "John", "Maria",

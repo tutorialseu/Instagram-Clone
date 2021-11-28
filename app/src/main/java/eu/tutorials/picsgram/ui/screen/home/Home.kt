@@ -22,7 +22,7 @@ fun Home() {
         TopBar()}) {
        Column {
            Stories()
-           //Todo 21 add PostFeed to Home UI
+           //Todo 22 add PostFeed to Home UI
            PostFeed()
        }
 
