@@ -21,12 +21,9 @@ import eu.tutorials.picsgram.R
 import androidx.compose.ui.geometry.Offset
 import eu.tutorials.picsgram.model.Story
 
-//Todo 1: create Stories file with a composable and add LazyRow
 @Composable
 fun Stories() {
-    //Todo 8: create a mutableList of Story
-    val stories = mutableListOf<Story>()
-    //Todo 9 create a a dummy list of 10 items from 0 to 9 index create a story and add to stories list
+   val stories = mutableListOf<Story>()
     (0..9).forEach { index ->
         val story = Story(
             image = "https://source.unsplash.com/random/${index + 1}.jpg",
@@ -34,13 +31,9 @@ fun Stories() {
         )
         stories.add(story)
     }
-    //Todo 10: Add a start and top padding of 8dp
+
     LazyRow(modifier = Modifier.padding(start = 8.dp, top = 8.dp)) {
-        /*
-        Todo 11: set items with the value as stories then add a Column as a parent for its content
-         with a horizontal padding of 4dp
-         Call the Story Item and set its argument as the image from the stories list
-         */
+
         items(stories) { story ->
             Column(modifier = Modifier.padding(horizontal = 4.dp)) {
                 Log.d("story", story.name)
@@ -51,10 +44,6 @@ fun Stories() {
     }
 }
 
-/**Todo 2 We want each story item to have a Circle Shape with a gradient border of mixed colors
- * so we create a CircleShape value and add Box as the parent with a border of width set to 2dp
- * brush set to LinearGradient with list of 2 colors and a start and end offset
- */
 @Composable
 fun StoryItem(image: String) {
     val shape = CircleShape
@@ -69,8 +58,7 @@ fun StoryItem(image: String) {
             shape = shape,
         )
     ) {
-        //Todo 3: we add a Card within the Box with a 60dp width and padding of 6dp
-        //and set background color of lightGray, set a circle shape and a clip to circle shape as well
+
         Card(
             modifier = Modifier
                 .size(60.dp)
@@ -78,7 +66,6 @@ fun StoryItem(image: String) {
                 .background(color = Color.LightGray, shape = shape)
                 .clip(shape)
         ) {
-            //Todo 5: We add a CoilImage and set imageModel to the Image from the parameter and modifier to fillMaxSize
             CoilImage(
                 imageModel = image,
                 contentDescription = "",
@@ -88,7 +75,6 @@ fun StoryItem(image: String) {
     }
 }
 
-//Todo 6: create a preview function for the Story Item
 @Preview(showBackground = true)
 @Composable
 fun StoryItemPreview() {

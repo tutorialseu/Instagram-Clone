@@ -20,9 +20,10 @@ import eu.tutorials.picsgram.model.CreateOptions
 fun Home() {
    Scaffold(topBar = {
         TopBar()}) {
-       //Todo 12: Set Column as the content layout and call Stories composable
        Column {
            Stories()
+           //Todo 21 add PostFeed to Home UI
+           PostFeed()
        }
 
     }
