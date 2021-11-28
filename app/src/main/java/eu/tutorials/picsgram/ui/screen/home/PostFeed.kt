@@ -20,12 +20,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.skydoves.landscapist.coil.CoilImage
+import eu.tutorials.picsgram.Manager
 
 @Composable
 fun PostFeed() {
-   HomeManager.displayPosts()
+   Manager.displayPosts()
     LazyColumn(modifier = Modifier.padding(top = 16.dp)) {
-        val posts = HomeManager.posts
+        val posts = Manager.posts
       items(posts.value){
           PostItem(
               userImage = it.user.image,

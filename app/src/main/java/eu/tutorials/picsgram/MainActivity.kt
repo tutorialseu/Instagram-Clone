@@ -3,6 +3,7 @@ package eu.tutorials.picsgram
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
@@ -12,7 +13,10 @@ import eu.tutorials.picsgram.ui.screen.main.MainScreen
 import eu.tutorials.picsgram.ui.screen.main.Navigation
 import eu.tutorials.picsgram.ui.theme.IntagramCloneTheme
 
+
 class MainActivity : ComponentActivity() {
+    //Todo 17: Add the experimental annotation
+    @ExperimentalFoundationApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -26,6 +30,8 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+//Todo 16: Add the experimental annotation
+@ExperimentalFoundationApi
 @Composable
 fun InstagramApp() {
 val navController = rememberNavController()

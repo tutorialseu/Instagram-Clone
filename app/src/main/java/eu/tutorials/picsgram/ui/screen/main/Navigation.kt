@@ -1,6 +1,10 @@
 package eu.tutorials.picsgram.ui.screen.main
 
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -8,6 +12,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navigation
 import eu.tutorials.picsgram.model.BottomMenu
 import eu.tutorials.picsgram.ui.screen.Login
+import eu.tutorials.picsgram.ui.screen.Search
 import eu.tutorials.picsgram.ui.screen.SignUp
 import eu.tutorials.picsgram.ui.screen.home.Home
 
@@ -28,43 +33,55 @@ class Navigation(val navController: NavHostController) {
         get() = navController.currentDestination?.route
 
     fun navigateToBottomBarRoute(route: String) {
-            navController.navigate(route) {
-                 popUpTo("login") {
-                        saveState = true
-                     inclusive = true
+        navController.navigate(route) {
+            popUpTo("login") {
+                saveState = true
+                inclusive = true
 
-                }
-                launchSingleTop = true
-                restoreState = true
+            }
+            launchSingleTop = true
+            restoreState = true
         }
     }
 }
-@Composable
-fun Navigation(navigation: Navigation) {
-    NavHost(navController = navigation.navController, startDestination = "login"){
 
-        composable("login"){
-          Login(navigation = navigation)
+//Todo 13: add the Experimental Annotation because the Search composable added has the annotation
+//start
+@ExperimentalFoundationApi
+//end
+@Composable
+fun Navigation(navigation: Navigation,
+               //Todo 18 create padding values parameter
+               //start
+               paddingValues: PaddingValues) {
+    NavHost(navController = navigation.navController, startDestination = "login",
+        //Todo add a padding to add space between the bottom bar and NavHost content
+        //start
+        modifier = Modifier.padding(paddingValues = paddingValues)) {
+
+        composable("login") {
+            Login(navigation = navigation)
         }
 
-        composable("signup"){
+        composable("signup") {
             SignUp(navigation = navigation)
         }
 
-        navigation(BottomMenu.Home.route,"main"){
-            composable(BottomMenu.Home.route){
-           Home()
+        navigation(BottomMenu.Home.route, "main") {
+            composable(BottomMenu.Home.route) {
+                Home()
             }
 
-            composable(BottomMenu.Search.route){
+            composable(BottomMenu.Search.route) {
+                //Todo 12: Add Search composable into its route so it shows when the bottom item is cliscked
+                Search()
+            }
+
+            composable(BottomMenu.Activity.route) {
 
             }
 
-            composable(BottomMenu.Activity.route){
-
-            }
-
-            composable(BottomMenu.Account.route){
+            composable(BottomMenu.Account.route) {
 
             }
         }
