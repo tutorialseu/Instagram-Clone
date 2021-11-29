@@ -11,6 +11,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navigation
 import eu.tutorials.picsgram.model.BottomMenu
+import eu.tutorials.picsgram.ui.screen.Activity
 import eu.tutorials.picsgram.ui.screen.Login
 import eu.tutorials.picsgram.ui.screen.Search
 import eu.tutorials.picsgram.ui.screen.SignUp
@@ -71,7 +72,8 @@ fun Navigation(navigation: Navigation,
             }
 
             composable(BottomMenu.Activity.route) {
-
+                //Todo 15: We add Activity to its route
+           Activity()
             }
 
             composable(BottomMenu.Account.route) {

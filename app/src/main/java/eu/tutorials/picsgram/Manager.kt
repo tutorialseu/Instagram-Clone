@@ -87,7 +87,7 @@ object Manager {
         val posts = ArrayList<Activity>()
         (0..9).forEach { index ->
             val post = Post(
-                image = "https://picsum.photos/400/300?$index",
+                image = "https://picsum.photos/100/100?$index",
                 user = User(
                     name = usernames[index],
                     username = usernames[index],
