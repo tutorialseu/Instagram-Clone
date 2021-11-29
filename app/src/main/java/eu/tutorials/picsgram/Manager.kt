@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import eu.tutorials.picsgram.model.Post
 import eu.tutorials.picsgram.model.User
 
-//Todo 7: Rename class to Manager and move out of the home package
+
 object Manager {
 
 
@@ -45,20 +45,15 @@ object Manager {
         _posts.value = posts
     }
 
-    //Todo 3: create usernames for the search grid
     private val gridUsernames =
         arrayListOf("Steph", "Chris", "John", "Maria",
             "Lina", "Mike", "Eva", "Jose", "Gabriel","Steven","James","Lidia","Ben",
         "Ted","Rose","Jen","Galaxy","Crystal","Diamond","Laura")
 
-    //Todo 4 create setter and getter for the search post
-    //start
     private val _gridPosts = mutableStateOf<List<Post>>(listOf())
     val gridPosts:State<List<Post>>
         get() = _gridPosts
-    //end
 
-    //Todo 5: create a function to generate 20 posts for the search feed
     fun displayGrid() {
         val posts = ArrayList<Post>()
         (0..19).forEach { index ->
@@ -69,7 +64,7 @@ object Manager {
                     username = gridUsernames[index],
                     image = "https://source.unsplash.com/random/${index + 1}.jpg"
                 ),
-                //Todo 6: set caption to empty string, we don't need it for the searchh screen
+
                 captions = "",
                 postedAt = "30 Minutes Ago"
             )

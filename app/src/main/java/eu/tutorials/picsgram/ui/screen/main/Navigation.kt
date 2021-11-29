@@ -45,18 +45,12 @@ class Navigation(val navController: NavHostController) {
     }
 }
 
-//Todo 13: add the Experimental Annotation because the Search composable added has the annotation
-//start
+
 @ExperimentalFoundationApi
-//end
 @Composable
 fun Navigation(navigation: Navigation,
-               //Todo 18 create padding values parameter
-               //start
                paddingValues: PaddingValues) {
     NavHost(navController = navigation.navController, startDestination = "login",
-        //Todo add a padding to add space between the bottom bar and NavHost content
-        //start
         modifier = Modifier.padding(paddingValues = paddingValues)) {
 
         composable("login") {
@@ -73,7 +67,6 @@ fun Navigation(navigation: Navigation,
             }
 
             composable(BottomMenu.Search.route) {
-                //Todo 12: Add Search composable into its route so it shows when the bottom item is cliscked
                 Search()
             }
 

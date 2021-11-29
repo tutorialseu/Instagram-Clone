@@ -13,10 +13,8 @@ import eu.tutorials.picsgram.ui.screen.main.MainScreen
 import eu.tutorials.picsgram.ui.screen.main.Navigation
 import eu.tutorials.picsgram.ui.theme.IntagramCloneTheme
 
-
+@ExperimentalFoundationApi
 class MainActivity : ComponentActivity() {
-    //Todo 17: Add the experimental annotation
-    @ExperimentalFoundationApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -30,7 +28,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-//Todo 16: Add the experimental annotation
 @ExperimentalFoundationApi
 @Composable
 fun InstagramApp() {

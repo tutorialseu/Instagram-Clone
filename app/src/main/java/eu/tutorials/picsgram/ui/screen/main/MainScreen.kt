@@ -13,10 +13,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 
-//Todo 14: Add the experimental annotation
-//start
+
 @ExperimentalFoundationApi
-//end
 @Composable
 fun MainScreen(navigation: Navigation) {
     Scaffold(bottomBar = {
@@ -24,7 +22,6 @@ fun MainScreen(navigation: Navigation) {
             HomeBottomBar(navigation = navigation)
         }
     }) {
-        //Todo 20: Pass in the padding value from scaffold
   Navigation(navigation = navigation,paddingValues = it)
     }
 }
@@ -47,10 +44,7 @@ fun HomeBottomBar(navigation: Navigation) {
     }
 }
 
-//Todo 15: Add the experimental annotation
-//start
 @ExperimentalFoundationApi
-//end
 @Preview(showBackground = true)
 @Composable
 fun MainScreenPreview() {
