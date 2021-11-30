@@ -109,4 +109,10 @@ object Manager {
         _activityPost.value = posts
     }
 
+    //Todo 1: We create a dummy user for the Account page with name, username and image url
+   private val _user = mutableStateOf(User("Tutorials Eu","tutorials",
+        "https://source.unsplash.com/random/400x300"))
+    //Todo 2: We create a getter for accessing the user
+    val user:State<User>
+    get() = _user
 }
