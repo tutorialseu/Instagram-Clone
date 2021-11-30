@@ -72,7 +72,6 @@ fun Navigation(navigation: Navigation,
             }
 
             composable(BottomMenu.Activity.route) {
-                //Todo 15: We add Activity to its route
            Activity()
             }
 

@@ -26,8 +26,9 @@ import eu.tutorials.picsgram.Manager
 @Composable
 fun PostFeed() {
    Manager.displayPosts()
+    val posts = Manager.posts
     LazyColumn(modifier = Modifier.padding(top = 16.dp)) {
-        val posts = Manager.posts
+
       items(posts.value){
           PostItem(
               userImage = it.user.image,

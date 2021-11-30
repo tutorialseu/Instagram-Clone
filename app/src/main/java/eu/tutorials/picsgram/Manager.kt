@@ -35,7 +35,7 @@ object Manager {
                 user = User(
                     name = usernames[index],
                     username = usernames[index],
-                    image = "https://source.unsplash.com/random/${index + 1}.jpg"
+                    image = "https://source.unsplash.com/random/${index + 1}"
                 ),
                 captions = captions[index],
                 postedAt = "30 Minutes Ago"
@@ -76,14 +76,11 @@ object Manager {
         _gridPosts.value = ArrayList(posts.map { it.copy() })
     }
 
-    //Todo 2: create a setter and getter for the activity post list
     private val _activityPost  = mutableStateOf<List<Activity>>(listOf())
     val activityPost:State<List<Activity>>
     get() = _activityPost
 
-    //Todo 3: create a function to generate the list
     fun displayActivity(){
-        //Todo 4: we create a post ArrayList, loop through 10 indexes and add a Post to each
         val posts = ArrayList<Activity>()
         (0..9).forEach { index ->
             val post = Post(
@@ -97,7 +94,6 @@ object Manager {
                 captions = "",
                 postedAt = "30 Minutes Ago"
             )
-            //Todo 5: Here we add posts under a topic creating 3 topics
             when {
                ( index < 3 ) -> {
                 posts.add(Activity("Technology", post = post))
@@ -110,7 +106,6 @@ object Manager {
                 }
             }
         }
-        //Todo 6: assign posts as value to activity post
         _activityPost.value = posts
     }
 
