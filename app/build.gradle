@@ -48,6 +48,10 @@ android {
 }
 
 dependencies {
+    //Todo 6 Pager and indicator dependency
+    implementation "com.google.accompanist:accompanist-pager:0.21.2-beta"
+    implementation "com.google.accompanist:accompanist-pager-indicators:0.21.2-beta"
+
     implementation "com.github.skydoves:landscapist-coil:1.4.1"
     implementation("androidx.navigation:navigation-compose:2.4.0-beta02")
     implementation "androidx.compose.material:material-icons-extended:$compose_version"

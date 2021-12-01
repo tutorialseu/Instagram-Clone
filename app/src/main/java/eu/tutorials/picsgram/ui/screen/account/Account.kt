@@ -1,4 +1,4 @@
-package eu.tutorials.picsgram.ui.screen
+package eu.tutorials.picsgram.ui.screen.account
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -17,8 +17,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.google.accompanist.pager.ExperimentalPagerApi
+import com.google.accompanist.pager.rememberPagerState
 import com.skydoves.landscapist.coil.CoilImage
 import eu.tutorials.picsgram.Manager
+import eu.tutorials.picsgram.model.TabItem
 import eu.tutorials.picsgram.model.User
 
 
@@ -135,8 +138,9 @@ fun AccountStats(count: Int, label: String) {
 }
 
 
+@ExperimentalPagerApi
 @Preview(showBackground = true)
 @Composable
 fun AccountDetailPreview() {
-    AccountDetail(user = User("Name", "Username", ""))
+    Account()
 }

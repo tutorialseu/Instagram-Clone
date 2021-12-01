@@ -11,7 +11,11 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navigation
 import eu.tutorials.picsgram.model.BottomMenu
-import eu.tutorials.picsgram.ui.screen.*
+import eu.tutorials.picsgram.ui.screen.Activity
+import eu.tutorials.picsgram.ui.screen.Login
+import eu.tutorials.picsgram.ui.screen.Search
+import eu.tutorials.picsgram.ui.screen.SignUp
+import eu.tutorials.picsgram.ui.screen.account.Account
 import eu.tutorials.picsgram.ui.screen.home.Home
 
 class Navigation(val navController: NavHostController) {
