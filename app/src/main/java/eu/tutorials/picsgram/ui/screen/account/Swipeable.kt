@@ -5,6 +5,7 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -28,12 +29,12 @@ fun Swipeable(tabItems: List<TabItem>, pagerState: PagerState) {
     val scope = rememberCoroutineScope()
 
     /*Todo 9: We add a TabRow to show the different items and set its properties;
-    *selectedTabIndex to pagerState.currentPage, backgroundColor to purple500, indicator to its default
+    *selectedTabIndex to pagerState.currentPage, backgroundColor to White, indicator to its default
     * indicator with pagerTabIndicatorOffset added to it and its arguments set as pagerState and tabPositions.
     * pagerTabIndicatorOffset will sync up the TabRow indicator with the pager
     * */
     TabRow(selectedTabIndex = pagerState.currentPage,
-    backgroundColor = colorResource(id = R.color.purple_500),
+    backgroundColor = Color.White,
         indicator = { tabPositions ->
             TabRowDefaults.Indicator(
                 Modifier.pagerTabIndicatorOffset(pagerState, tabPositions),height = 5.dp
@@ -41,13 +42,15 @@ fun Swipeable(tabItems: List<TabItem>, pagerState: PagerState) {
         }) {
         /*Todo 10: We set a Tab  as the content for the TabRow. First is to loop
         *  through the tabItems and then add a Tab and set icon to the icon from the list and icon
-        * contentDescription set as the title for each tabItem
+        * contentDescription set as the title for each tabItem with tint color set to purple_500
         * text is set to the title from the list
         *
         * selected is set to true when pagerState.currentPage equal the index */
         tabItems.forEachIndexed { index, tab ->
             Tab(
-                icon = { Icon(imageVector = tab.icon, contentDescription = tab.title) },
+                icon = { Icon(imageVector = tab.icon, contentDescription = tab.title,tint = colorResource(
+                    id = R.color.purple_500
+                ))},
                 text = { Text(tab.title) },
                 modifier = Modifier.height(60.dp),
                 selected = pagerState.currentPage == index,
