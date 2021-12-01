@@ -9,10 +9,13 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
+import com.google.accompanist.pager.ExperimentalPagerApi
 import eu.tutorials.picsgram.ui.screen.main.MainScreen
 import eu.tutorials.picsgram.ui.screen.main.Navigation
 import eu.tutorials.picsgram.ui.theme.IntagramCloneTheme
 
+//Todo 24:Add annotation for experimental pager
+@ExperimentalPagerApi
 @ExperimentalFoundationApi
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +31,8 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+//Todo 23:Add annotation for experimental pager
+@ExperimentalPagerApi
 @ExperimentalFoundationApi
 @Composable
 fun InstagramApp() {

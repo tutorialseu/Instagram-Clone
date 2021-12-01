@@ -9,8 +9,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
+import com.google.accompanist.pager.ExperimentalPagerApi
 
 
+//Todo 21:Add annotation for experimental pager
+@ExperimentalPagerApi
 @ExperimentalFoundationApi
 @Composable
 fun MainScreen(navigation: Navigation) {
@@ -41,7 +44,8 @@ fun HomeBottomBar(navigation: Navigation) {
     }
 }
 
-
+//Todo 22:Add annotation for experimental pager
+@ExperimentalPagerApi
 @ExperimentalFoundationApi
 @Preview(showBackground = true)
 @Composable

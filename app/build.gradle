@@ -48,7 +48,6 @@ android {
 }
 
 dependencies {
-    //Todo 6 Pager and indicator dependency
     implementation "com.google.accompanist:accompanist-pager:0.21.2-beta"
     implementation "com.google.accompanist:accompanist-pager-indicators:0.21.2-beta"
 

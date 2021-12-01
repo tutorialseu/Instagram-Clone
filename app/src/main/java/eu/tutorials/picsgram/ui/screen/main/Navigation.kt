@@ -10,6 +10,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navigation
+import com.google.accompanist.pager.ExperimentalPagerApi
 import eu.tutorials.picsgram.model.BottomMenu
 import eu.tutorials.picsgram.ui.screen.Activity
 import eu.tutorials.picsgram.ui.screen.Login
@@ -47,7 +48,8 @@ class Navigation(val navController: NavHostController) {
     }
 }
 
-
+//Todo 20 add annotation for experimental pager
+@ExperimentalPagerApi
 @ExperimentalFoundationApi
 @Composable
 fun Navigation(
@@ -81,7 +83,6 @@ fun Navigation(
             }
 
             composable(BottomMenu.Account.route) {
-                //Todo 5: add Account to its bottom route
                 Account()
             }
         }

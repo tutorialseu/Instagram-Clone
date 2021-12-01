@@ -1,5 +1,6 @@
 package eu.tutorials.picsgram.ui.screen.account
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -24,13 +25,17 @@ import eu.tutorials.picsgram.Manager
 import eu.tutorials.picsgram.model.TabItem
 import eu.tutorials.picsgram.model.User
 
-
-//Todo 3: Create an Account Composable and set a Column as the parent element
+//Todo 18 add annotation for experimental foundation and experimental Pager
+@ExperimentalPagerApi
+@ExperimentalFoundationApi
 @Composable
 fun Account() {
+    //Todo 16: create the list of TabItems
+    val tabs = listOf(TabItem.Posts,TabItem.Stories)
     Column {
-        //Todo 4: Add AccountDetail and pass in user value from the Manager class
         AccountDetail(user = Manager.user.value)
+        //Todo 17: Call Swipeable and set tabs as tebItems argument ans rememberPagerState as pagerState
+        Swipeable(tabItems = tabs, pagerState = rememberPagerState())
     }
 }
 
@@ -137,7 +142,8 @@ fun AccountStats(count: Int, label: String) {
     }
 }
 
-
+//Todo 19 add annotation for experimental  foundation  and experimental pager
+@ExperimentalFoundationApi
 @ExperimentalPagerApi
 @Preview(showBackground = true)
 @Composable

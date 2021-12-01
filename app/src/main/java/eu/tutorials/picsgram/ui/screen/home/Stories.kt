@@ -19,22 +19,19 @@ import androidx.compose.ui.unit.dp
 import com.skydoves.landscapist.coil.CoilImage
 import eu.tutorials.picsgram.R
 import androidx.compose.ui.geometry.Offset
+import eu.tutorials.picsgram.Manager
+import eu.tutorials.picsgram.Manager.stories
 import eu.tutorials.picsgram.model.Story
 
 @Composable
 fun Stories() {
-   val stories = mutableListOf<Story>()
-    (0..9).forEach { index ->
-        val story = Story(
-            image = "https://source.unsplash.com/random/${index + 1}.jpg",
-            name = "User + $index"
-        )
-        stories.add(story)
-    }
+    //Todo 1: move the stories logic to the Manager class so we can also access it for the Swipeable content
 
+    //Todo 4: call the displayStories method to process the stories
+    Manager.displayStories()
     LazyRow(modifier = Modifier.padding(start = 8.dp, top = 8.dp)) {
-
-        items(stories) { story ->
+        //Todo 5: set stories value from Manager class as items argument
+        items(stories.value) { story ->
             Column(modifier = Modifier.padding(horizontal = 4.dp)) {
                 Log.d("story", story.name)
                 StoryItem(image = story.image)
