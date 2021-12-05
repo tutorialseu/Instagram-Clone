@@ -1,6 +1,7 @@
 package eu.tutorials.picsgram.ui.screen
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
@@ -21,11 +22,16 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import eu.tutorials.picsgram.R
 import eu.tutorials.picsgram.ui.components.UserTextField
 
+
 @Composable
-fun Login(modifier: Modifier = Modifier) {
+fun Login(modifier: Modifier = Modifier,
+    //Todo 6: Add NavController as parameter
+          navController: NavController) {
     val usernameState = remember {
         mutableStateOf("")
     }
@@ -114,13 +120,28 @@ fun Login(modifier: Modifier = Modifier) {
             horizontalArrangement = Arrangement.Center
         ) {
             Text(text = "Don't have an account? ")
-            Text(text = "Sign Up", fontWeight = FontWeight.Bold)
+            Text(text = "Sign Up", fontWeight = FontWeight.Bold,
+                //Todo 7: Make the sign up text clickable using modifier and calling the clickable method
+                modifier = modifier.clickable {
+                /*Todo 8: using navController we call navigate method and pass in signup
+                set launchSingleTop to true so we won't have a duplicate route
+                set popUpTo to login and inclusive set to true so we don't have any route left at the back stack
+                 */
+                navController.navigate("signup"){
+                    launchSingleTop = true
+                    popUpTo("login"){
+                        inclusive = true
+                    }
+                }
+            })
         }
     }
 }
 
+
 @Preview(showBackground = true)
 @Composable
 fun LoginPreview() {
-    Login()
+    //Todo 9: pass rememberNavController as argument
+    Login(navController = rememberNavController())
 }

@@ -1,6 +1,7 @@
 package eu.tutorials.picsgram.ui.screen
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
@@ -19,17 +20,16 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import eu.tutorials.picsgram.R
 import eu.tutorials.picsgram.ui.components.UserTextField
 
-/**Todo 1: create the SignUp file and then a composable with
- * [modifier] variable for defining each elements variable and [dp]
- * with a value of 16
-  */
 @Composable
-fun SignUp(modifier: Modifier = Modifier, dp: Dp = 16.dp) {
-    // Todo 2: create state variable for all fields and a toggle state for hiding and revealing the password characters
-    //start
+fun SignUp(modifier: Modifier = Modifier, dp: Dp = 16.dp,
+           //Todo 10: Add NavController as parameter
+           navController: NavController) {
+
     val usernameState = remember {
         mutableStateOf("")
     }
@@ -45,22 +45,16 @@ fun SignUp(modifier: Modifier = Modifier, dp: Dp = 16.dp) {
     val emailState = remember {
         mutableStateOf("")
     }
-    //end
-
-    //Todo 3: create a variable for the signup enabled state which is when all the fields has atleas one character
     val enableButton = usernameState.value.isNotEmpty() && passwordState.value.isNotEmpty()
             &&nameState.value.isNotEmpty() && emailState.value.isNotEmpty()
-    //Todo 4: Add a Column as the parent layout and set modifier to fill max size with a horizontal padding of 16dp
-    Column(modifier = modifier.fillMaxSize().padding(horizontal = dp)) {
-        //Todo 5: add an Image for displaying the Logo with modifier set to fillMaxWidth
+    Column(modifier = modifier
+        .fillMaxSize()
+        .padding(horizontal = dp)) {
         Image(
             painter = painterResource(id = R.drawable.picsgram), contentDescription = "",
             modifier = modifier
                 .fillMaxWidth()
         )
-        //Todo 6: Using the input component we previously created we add the input fields and set each field state to it,
-        //the placeholder and onFieldChange for when the input changes
-        //start
         UserTextField(fieldState = nameState.value, onFieldChange = {
             nameState.value = it
         }, placeholder = "Full name")
@@ -68,7 +62,6 @@ fun SignUp(modifier: Modifier = Modifier, dp: Dp = 16.dp) {
         UserTextField(fieldState = emailState.value, onFieldChange = {
             emailState.value = it
         }, placeholder = "Email",
-            //Todo 7: for the email field we set the keyboard type to email so it shows the @ symbol
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email))
         UserTextField(fieldState = usernameState.value, onFieldChange = {
             usernameState.value = it
@@ -77,7 +70,6 @@ fun SignUp(modifier: Modifier = Modifier, dp: Dp = 16.dp) {
             fieldState = passwordState.value,
             onFieldChange = { passwordState.value = it },
             placeholder = "Password",
-            //Todo 8: The password field uses a toggle icon to hide or reveal the password characters
             passwordToggle = {
                 IconButton(onClick = { toggleState.value = !toggleState.value }) {
                     Icon(
@@ -88,8 +80,7 @@ fun SignUp(modifier: Modifier = Modifier, dp: Dp = 16.dp) {
             },
             passwordTransformation = if (toggleState.value) VisualTransformation.None else PasswordVisualTransformation()
         )
-//end
-        //Todo 10: add a Signup Button which is enabled when the fields are not empty
+
         Button(
             onClick = { },
             modifier = Modifier
@@ -100,9 +91,8 @@ fun SignUp(modifier: Modifier = Modifier, dp: Dp = 16.dp) {
             Text(text = "Sign Up", modifier = modifier.padding(vertical = 8.dp))
         }
 
-        //Todo 11: set a divider to add a line below the Button
         Divider(modifier = modifier.padding(top = 48.dp))
-        //Todo 12:A row with two Text side by side for a user with an existing account
+
         Row(
             modifier = modifier
                 .fillMaxWidth()
@@ -110,14 +100,22 @@ fun SignUp(modifier: Modifier = Modifier, dp: Dp = 16.dp) {
             horizontalArrangement = Arrangement.Center
         ) {
             Text(text = "Already Have An Account? ")
-            Text(text = "Login", fontWeight = FontWeight.Bold)
+            Text(text = "Login", fontWeight = FontWeight.Bold,
+                //Todo 11: Make the sign up text clickable using modifier and calling the clickable method
+                modifier = modifier.clickable {
+                    //Todo 12: using navController we call navigate method and pass in signup and set launchSingleTop to true
+                    navController.navigate("login"){
+                        launchSingleTop = true
+                    }
+            })
         }
     }
 }
 
-//Todo 9: add a preview function
+
 @Preview(showBackground = true)
 @Composable
 fun SignUpPreview() {
-    SignUp()
+    //Todo 13: pass in rememberNavController as argument
+    SignUp(navController = rememberNavController())
 }
