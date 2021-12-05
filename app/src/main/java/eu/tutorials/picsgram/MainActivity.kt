@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun PicsGramApp() {
-    /*Todo 15: create rememberNavController, replace Login composable with MainScreen since we have a
+    /*Todo 17: create rememberNavController, replace Login composable with MainScreen since we have a
     NavHost controlling the destinations to be displayed and pass in navController
     */
     val navController = rememberNavController()

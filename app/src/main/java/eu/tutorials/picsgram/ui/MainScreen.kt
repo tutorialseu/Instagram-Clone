@@ -7,7 +7,7 @@ import androidx.navigation.compose.composable
 import eu.tutorials.picsgram.ui.screen.Login
 import eu.tutorials.picsgram.ui.screen.SignUp
 
-/**Todo 14: create MainScreen composable to serve as the host screen and create a
+/**Todo 16: create MainScreen composable to serve as the host screen and create a
  * navHostController parameter then call Navigation composable and pass in as argument to it
  *
  */
@@ -15,6 +15,7 @@ import eu.tutorials.picsgram.ui.screen.SignUp
 fun MainScreen(navHostController: NavHostController) {
     Navigation(navHostController = navHostController)
 }
+
 /**Todo 2: create MainScreen file and create Navigation composable
  * with [navHostController] as parameter
  */
@@ -27,11 +28,13 @@ fun Navigation(navHostController: NavHostController) {
 
         //Todo 4: Add a composable for login and set "login" as route
         composable("login") {
+            //Todo 14: Add Login composable and pass in navHostController as argument
             Login(navController = navHostController)
         }
 
         //Todo 5: Add a composable for signup and set "signup" as route
         composable("signup") {
+            //Todo 15: Add Login composable and pass in navHostController as argument
             SignUp(navController = navHostController)
         }
 
