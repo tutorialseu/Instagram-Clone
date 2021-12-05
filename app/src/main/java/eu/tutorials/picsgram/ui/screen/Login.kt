@@ -22,13 +22,14 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import eu.tutorials.picsgram.R
 import eu.tutorials.picsgram.ui.components.UserTextField
 import eu.tutorials.picsgram.ui.screen.main.Navigation
 
 @Composable
-fun Login(modifier: Modifier = Modifier,navigation: Navigation) {
+fun Login(modifier: Modifier = Modifier,navController: NavController) {
 
     val usernameState = remember {
         mutableStateOf("")
@@ -90,7 +91,7 @@ fun Login(modifier: Modifier = Modifier,navigation: Navigation) {
 
             Button(
                 onClick = {
-                          navigation.navController.navigate("main"){
+                          navController.navigate("profile"){
                               launchSingleTop = true
                               popUpTo("login"){
                                   inclusive = true
@@ -125,7 +126,7 @@ fun Login(modifier: Modifier = Modifier,navigation: Navigation) {
             Text(text = "Don't have an account? ")
             Text(text = "Sign Up", fontWeight = FontWeight.Bold,
                 modifier = modifier.clickable {
-                   navigation.navController.navigate("signup"){
+                   navController.navigate("signup"){
                         launchSingleTop = true
                         popUpTo("login"){
                             inclusive = true
@@ -139,5 +140,5 @@ fun Login(modifier: Modifier = Modifier,navigation: Navigation) {
 @Preview(showBackground = true)
 @Composable
 fun LoginPreview() {
-    Login(navigation = Navigation(rememberNavController()))
+    Login(navController = rememberNavController())
 }

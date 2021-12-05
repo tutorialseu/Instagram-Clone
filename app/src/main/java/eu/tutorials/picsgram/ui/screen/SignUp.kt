@@ -20,6 +20,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import eu.tutorials.picsgram.R
 import eu.tutorials.picsgram.ui.components.UserTextField
@@ -27,7 +28,7 @@ import eu.tutorials.picsgram.ui.screen.main.Navigation
 
 
 @Composable
-fun SignUp(modifier: Modifier = Modifier, dp: Dp = 16.dp,navigation: Navigation) {
+fun SignUp(modifier: Modifier = Modifier, dp: Dp = 16.dp,navController: NavController) {
     val usernameState = remember {
         mutableStateOf("")
     }
@@ -98,7 +99,7 @@ Button(
             Text(text = "Already Have An Account? ")
             Text(text = "Login", fontWeight = FontWeight.Bold,
                modifier = modifier.clickable {
-                    navigation.navController.navigate("login"){
+                   navController.navigate("login"){
                         launchSingleTop = true
                     }
                 })
@@ -109,5 +110,5 @@ Button(
 @Preview(showBackground = true)
 @Composable
 fun SignUpPreview() {
-    SignUp(navigation = Navigation(navController = rememberNavController()))
+    SignUp(navController = rememberNavController())
 }
