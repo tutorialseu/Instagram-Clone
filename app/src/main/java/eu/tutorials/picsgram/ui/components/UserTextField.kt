@@ -11,11 +11,12 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun UserTextField(fieldState:String, onFieldChange:(String)->Unit, placeholder:String,
+fun UserTextField(fieldState:String, onFieldChange:(String)->Unit, placeholder:String, label:@Composable
+    ()-> Unit = {},
                   modifier: Modifier = Modifier,
                   passwordToggle: @Composable (() -> Unit)? = null,
                   passwordTransformation:VisualTransformation = VisualTransformation.None,
-keyboardOptions: KeyboardOptions = KeyboardOptions.Default) {
+                  keyboardOptions: KeyboardOptions = KeyboardOptions.Default, isError:Boolean = false) {
     OutlinedTextField(value = fieldState, onValueChange = {
        onFieldChange(it)
     },placeholder = { Text(text =placeholder) },
@@ -23,5 +24,5 @@ keyboardOptions: KeyboardOptions = KeyboardOptions.Default) {
             .fillMaxWidth().padding(top = 16.dp),
     trailingIcon = passwordToggle,
     visualTransformation = passwordTransformation,
-    keyboardOptions = keyboardOptions)
+    keyboardOptions = keyboardOptions,isError = isError,label = label)
 }

@@ -9,17 +9,25 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
-import eu.tutorials.picsgram.ui.screen.MainViewModel
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
+import eu.tutorials.picsgram.ui.viewmodel.MainViewModel
 import eu.tutorials.picsgram.ui.screen.main.MainScreen
-import eu.tutorials.picsgram.ui.theme.IntagramCloneTheme
+import eu.tutorials.picsgram.ui.theme.PicsGramTheme
+import eu.tutorials.picsgram.ui.viewmodel.MainViewModelFactory
 
 
 class MainActivity : ComponentActivity() {
-    private val viewModel by viewModels<MainViewModel>()
+
+    private val viewModel: MainViewModel by viewModels {
+        MainViewModelFactory(repository =  (application as App).repository)
+
+    }
+
+    @ExperimentalPermissionsApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            IntagramCloneTheme {
+            PicsGramTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
                     PicsGramApp(viewModel)
@@ -30,15 +38,16 @@ class MainActivity : ComponentActivity() {
 }
 
 
+@ExperimentalPermissionsApi
 @Composable
 fun PicsGramApp(viewModel: MainViewModel) {
-val navController = rememberNavController()
-  MainScreen(navController = navController,viewModel = viewModel)
+    val navController = rememberNavController()
+    MainScreen(navController = navController, viewModel = viewModel)
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    IntagramCloneTheme {
+    PicsGramTheme {
     }
 }
